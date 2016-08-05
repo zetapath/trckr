@@ -37,7 +37,9 @@
     "cheerio": "^0.20.0",
     "colors": "^1.1.2",
     "mocha": "^2.5.3",
+    "moment": "^2.14.1",
     "nightmare": "^2.6.0",
-    "node-fetch": "^1.5.3"
+    "node-fetch": "^1.5.3",
+    "random-useragent": "^0.3.0"
   }
 }
