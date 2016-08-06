@@ -1,8 +1,7 @@
-'use strict';
+process.env.NODE_PATH = __dirname
+require('module').Module._initPaths()
 
-process.env.NODE_PATH = __dirname;
-require('module').Module._initPaths();
-require('babel-register');
-require('babel-polyfill');
+require('babel-register')
+require('babel-polyfill')
 
-require('./test');
+require('./test')
