@@ -1,0 +1,9 @@
+{
+  "twitter": {
+    "consumerKey": "",
+    "consumerSecret": "",
+    "access_token_key": "",
+    "access_token_secret": "",
+    "callbackURL": ""
+  }
+}

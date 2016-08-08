@@ -1,7 +1,7 @@
 {
   "name": "trckr",
   "description": "...",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/index.js",
   "homepage": "",
   "author": {
@@ -16,21 +16,30 @@
     }
   ],
   "scripts": {
-    "start": "npm run build & npm run terminal",
+    "start": "npm run server",
     "test": "npm run mocha",
-    "build": "babel src --out-dir lib",
-    "terminal": "node index.js",
+    "build": "babel src --out-dir build",
+    "server": "node index.js",
+    "a": "node test/index.js",
     "mocha": "mocha --recursive --compilers js:babel-register --require babel-polyfill",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "supervisor": "supervisor index.js"
   },
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.9.0",
     "babel-register": "^6.9.0",
+    "body-parser": "^1.13.2",
     "cheerio": "^0.20.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "ejs": "^2.3.3",
     "moment": "^2.14.1",
     "nightmare": "^2.6.0",
     "node-fetch": "^1.5.3",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-twitter": "^1.0.4",
     "random-useragent": "^0.3.0"
   },
   "devDependencies": {
@@ -41,11 +50,11 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
-    "colors": "^1.1.2",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-react": "^6.0.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "supervisor": "^0.11.0"
   }
 }
