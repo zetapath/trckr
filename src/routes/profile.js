@@ -11,12 +11,16 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/profile', (req, res) => {
-  res.send('Hi {unknown}!')
+  const session = req.session.store
+  if (session) {
+    res.send(`Hi ${JSON.stringify(session.displayName)}!`)
+  } else {
+    res.redirect('/login')
+  }
 })
 
 router.get('/logout', (req, res) => {
-  res.send('See you tomorrow? 🤔')
-  req.logout()
+  req.session.destroy()
   res.redirect('/')
 })
 

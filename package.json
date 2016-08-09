@@ -1,9 +1,17 @@
 {
   "name": "trckr",
   "description": "...",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./lib/index.js",
   "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetapath/trckr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zetapath/trckr/issues",
+    "email": "issues@react-toolbox.com"
+  },
   "author": {
     "name": "Zetapath LTD.",
     "url": "http://github.com/zetapath/trckr"
@@ -23,7 +31,8 @@
     "a": "node test/index.js",
     "mocha": "mocha --recursive --compilers js:babel-register --require babel-polyfill",
     "lint": "eslint .",
-    "supervisor": "supervisor index.js"
+    "supervisor": "supervisor index.js",
+    "killer": "pkill -f node"
   },
   "license": "MIT",
   "dependencies": {
@@ -31,16 +40,20 @@
     "babel-register": "^6.9.0",
     "body-parser": "^1.13.2",
     "cheerio": "^0.20.0",
+    "ejs": "^2.3.3",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
-    "ejs": "^2.3.3",
+    "lodash": "^4.14.1",
+    "lowdb": "^0.13.1",
     "moment": "^2.14.1",
     "nightmare": "^2.6.0",
     "node-fetch": "^1.5.3",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-twitter": "^1.0.4",
-    "random-useragent": "^0.3.0"
+    "random-useragent": "^0.3.0",
+    "session-file-store": "^0.2.0",
+    "uuid": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
