@@ -1,5 +1,6 @@
-process.env.NODE_PATH = __dirname
-require('module').Module._initPaths()
+const environment = process.env.NODE_ENV || 'development'
+global.config = require(`./config.${environment}`)
+global.env = environment
 require('babel-register')
 require('babel-polyfill')
 require('./src')

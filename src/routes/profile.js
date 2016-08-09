@@ -12,11 +12,7 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', (req, res) => {
   const session = req.session.store
-  if (session) {
-    res.send(`Hi ${JSON.stringify(session.displayName)}!`)
-  } else {
-    res.redirect('/login')
-  }
+  res.send(`Hi ${JSON.stringify(session.displayName)}!`)
 })
 
 router.get('/logout', (req, res) => {

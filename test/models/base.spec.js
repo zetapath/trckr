@@ -65,7 +65,7 @@ describe('/models: Base', () => {
     for (i = 0; i < 10; i++) {
       Model.insert({ username: `Username ${i}` })
     }
-    const items = Model.find({ field: 'username', limit: 1 })
+    const items = Model.find({ field: 'username' })
     expect(items[0]).to.equal('Username 0')
   })
 
@@ -88,11 +88,11 @@ describe('/models: Base', () => {
       data: { displayName: 'Javi' }
     })
     const stored = Model.find({ query: data, limit: 1 })
-    expect(stored[0].id).to.equal(updated.id)
-    expect(stored[0].username).to.equal(updated.username)
-    expect(stored[0].createdAt).to.equal(updated.createdAt)
-    expect(stored[0].displayName).to.equal(updated.displayName)
-    expect(stored[0].displayName).to.equal('Javi')
+    expect(stored.id).to.equal(updated.id)
+    expect(stored.username).to.equal(updated.username)
+    expect(stored.createdAt).to.equal(updated.createdAt)
+    expect(stored.displayName).to.equal(updated.displayName)
+    expect(stored.displayName).to.equal('Javi')
   })
 
   it('Can create an item if in on a update does not exist', async () => {

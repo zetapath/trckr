@@ -1,17 +1,21 @@
-import store from 'src/store'
-const db = store()
+import { User } from '../models'
 
 export default (req, res, next) => {
-  db.read()
+  const route = req.url.split('/')[1]
+  if (route === 'static') return next()
 
-  // console.log(req.session, req.method, req.url);
+  let user
   const id = req.session.uuid
   if (id) {
-    const user = db.get('users').find({ id }).value()
+    user = User.find({ query: { id }, limit: 1 })
     if (user) {
       req.session.store = user
-      console.log("👻", req.session.store.username)
+      console.log(`👻 session ${user.username}`)
     }
+  }
+
+  if (!user && route !== '' && route !== 'login' && route !== 'auth') {
+    return res.redirect('/login')
   }
   next()
 }

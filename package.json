@@ -1,7 +1,7 @@
 {
   "name": "trckr",
   "description": "...",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./lib/index.js",
   "homepage": "",
   "repository": {
@@ -27,11 +27,10 @@
     "start": "npm run server",
     "test": "npm run mocha",
     "build": "babel src --out-dir build",
-    "server": "node index.js",
-    "a": "node test/index.js",
+    "server": "NODE_ENV=production node index.js",
     "mocha": "mocha --recursive --compilers js:babel-register --require babel-polyfill",
     "lint": "eslint .",
-    "supervisor": "supervisor index.js",
+    "dev": "NODE_ENV=production supervisor index.js",
     "killer": "pkill -f node"
   },
   "license": "MIT",
