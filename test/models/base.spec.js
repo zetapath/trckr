@@ -10,7 +10,7 @@ describe('/models: Base', () => {
 
   let Model
   beforeEach(() => {
-    Model = new Base({ file: 'test', model: 'tests' })
+    Model = new Base({ file: 'test', key: 'items' })
     Model.reset()
   })
 

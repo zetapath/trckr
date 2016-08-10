@@ -6,7 +6,7 @@ export default (state) => ({
     props.id = uuid()
     props.createdAt = new Date()
     let item = state.db
-      .get(state.model)
+      .get(state.key)
       .push(props)
       .value()
 

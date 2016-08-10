@@ -10,7 +10,7 @@ export default (state) => {
 
   const db = lowdb(`${folder}/${state.file}.json`, { storage: fileSync })
   const defaults = {}
-  defaults[state.model] = []
+  defaults[state.key] = []
   db.defaults(defaults).value()
   state.db = db
 

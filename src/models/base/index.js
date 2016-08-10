@@ -9,7 +9,7 @@ import reset from './reset'
 export default (props = {}) => {
   const state = {
     file: props.file || 'db',
-    model: props.model || 'model'
+    key: props.key || 'model'
   }
 
   return Object.assign(
