@@ -11,6 +11,8 @@ export default (req, res, next) => {
     if (user) {
       req.session.store = user
       console.log(`👻 session ${user.username}`)
+    } else {
+      req.session.uuid = undefined
     }
   }
 
