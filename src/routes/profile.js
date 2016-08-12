@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { User } from '../models'
 
 const router = new Router()
 
@@ -12,7 +13,7 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', (req, res) => {
   const session = req.session.store
-  res.send(`Hi ${JSON.stringify(session.displayName)}!`)
+  res.json(session)
 })
 
 router.get('/logout', (req, res) => {
