@@ -11,7 +11,6 @@ export default (state) => ({
       .value()
 
     if ((!item || !item.id) && props.data && props.upsert) {
-      console.log('💩', item)
       props.data.id = uuid()
       props.data.createdAt = new Date()
       delete props.data.updatedAt
