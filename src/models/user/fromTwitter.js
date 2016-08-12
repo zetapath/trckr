@@ -1,11 +1,8 @@
-import Model from './base'
+const provider = 'twitter'
 
+export default (state) => ({
 
-const extend = (state) => ({
-
-  saveTwitter(props = {}) {
-    const provider = 'twitter'
-
+  fromTwitter(props = {}) {
     return state.update({
       query: { provider, username: props.username },
       data: {
@@ -20,11 +17,4 @@ const extend = (state) => ({
       upsert: true
     })
   }
-
 })
-
-export default (() => {
-  const state = new Model({ file: 'common', key: 'users' })
-
-  return Object.assign(state, extend(state))
-})()

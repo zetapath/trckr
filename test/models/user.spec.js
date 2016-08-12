@@ -32,7 +32,7 @@ describe('/models: User', () => {
         lang: 'en'
       }
     }
-    const user = User.saveTwitter(profile)
+    const user = User.fromTwitter(profile)
 
     expect(user.id).to.be.ok
     expect(user.username).to.equal(profile.username)
