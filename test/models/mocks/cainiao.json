@@ -1,0 +1,28 @@
+{ "allowRetry": false,
+  "cachedTime": "2016-08-07 18:09:11",
+  "destCountry": "Thailand",
+  "destCpList": [],
+  "hasRefreshBtn": true,
+  "latestTrackingInfo":
+   { "desc": "[-]Departed from transferring country",
+     "status": "DEPART_FROM_ORIGINAL_COUNTRY",
+     "time": "2016-08-07 18:09:11",
+     "timeZone": "" },
+  "mailNo": "LP00056635120304",
+  "originCountry": "China",
+  "originCpList": [],
+  "section1":
+   { "countryName": "China",
+     "detailList": [],
+     "mailNo": "LP00056635120304" },
+  "section2":
+   { "companyName": "Thailand Post",
+     "countryName": "Thailand",
+     "detailList": [],
+     "mailNo": "RQ029275275MY",
+     "url": "http://www.thailandpost.co.th/" },
+  "shippingTime": 11,
+  "status": "DEPART_FROM_ORIGINAL_COUNTRY",
+  "statusDesc": "Your parcel has left for the destination country.",
+  "success": true,
+  "syncQuery": false }
