@@ -3,15 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>trckr</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <meta name="apple-mobile-web-app-title" content="Material Console">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta http-equiv="cleartype" content="on">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/build/trckr.app.css">
   </head>
 
   <body>
-    <h1>trckr v.0.0.6</h1>
+    <h1>trckr v.0.0.7</h1>
+
     <section id="react-app">
       <%- markup %>
       <small>session: <%-JSON.stringify(session)%></small>
     </section>
-    <script id="store" type="application/json"><%-JSON.stringify(store)%></script>
-    <script src="/static/bundle.js"></script>
+
+    <script id="store" type="application/json">
+      <%-JSON.stringify(store)%>
+    </script>
+    <script src="/build/trckr.app.js"></script>
   </body>
 </html>

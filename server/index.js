@@ -26,6 +26,7 @@ app.use(session(global.config.session))
 
 // Define routes.
 app.use('/static', express.static('static'))
+app.use('/build', express.static('build'))
 app.use(middlewareSession)
 app.use(middlewareError)
 app.use('/', routes)
