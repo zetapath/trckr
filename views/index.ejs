@@ -6,9 +6,10 @@
   </head>
 
   <body>
-    <h1>trckr v.0.0.4</h1>
+    <h1>trckr v.0.0.6</h1>
     <section id="react-app">
       <%- markup %>
+      <small>session: <%-JSON.stringify(session)%></small>
     </section>
     <script id="store" type="application/json"><%-JSON.stringify(store)%></script>
     <script src="/static/bundle.js"></script>

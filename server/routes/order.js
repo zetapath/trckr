@@ -1,18 +1,27 @@
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 import { Router } from 'express'
 import { cainiao } from '../providers'
 import { Order } from '../models'
+import Orders from '../../components/Orders'
 
 const router = new Router()
 
+// List of orders for current session
 router.get('/orders', (req, res) => {
   const sessionId = req.session.store.id
   const orders = Order.find({
     query: { user: sessionId }
   })
 
-  res.json(orders)
+  res.render('index.ejs', {
+    store: {},
+    session: req.session.store,
+    markup: ReactDOMServer.renderToString(<Orders store={orders}/>)
+  })
 })
 
+// Info of a determinate order using store id
 router.get('/order/:id', (req, res) => {
   const sessionId = req.session.store.id
   const order = Order.find({
@@ -26,10 +35,12 @@ router.get('/order/:id', (req, res) => {
   }
 })
 
+// Remove a determinate order using store id
 router.delete('/order/:id', (req, res) => {
   res.status(500).send('💩')
 })
 
+// Add a new order for current session
 router.get('/order/save/:id', (req, res) => {
   cainiao(req.params.id)
     .then((info) => {

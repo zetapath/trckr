@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   const bindings = {
     store: {},
     session: req.session.store,
-    markup: '<p>Hello world!</p>'
+    markup: '<h2>Hello World</h2>'
   }
 
   res.render('index.ejs', bindings)
