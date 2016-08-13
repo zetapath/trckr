@@ -17,6 +17,7 @@ app.get('/', passport.authenticate('twitter'))
 app.get('/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   (req, res) => {
+    console.log('>>>>', req.user)
     req.session.uuid = req.user.id
     res.redirect('/profile')
   }

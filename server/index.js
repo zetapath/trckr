@@ -16,6 +16,7 @@ const app = express()
 app.set('views', path.resolve('.', 'src/views')) // @TODO: Pass config between routers
 app.set('view engine', 'ejs')
 // Use application-level middleware
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 // if (isProduction) {
 //   app.set('trust proxy', 1) // trust first proxy

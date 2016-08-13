@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import chai from 'chai'
 import chaiAsPromised from 'chai-as-promised'
-import Base from '../../src/models/base'
+import Base from '../../server/models/base'
 chai.use(chaiAsPromised)
 chai.should()
 
