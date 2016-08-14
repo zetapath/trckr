@@ -1,0 +1,11 @@
+@import "~normalize.css";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Roboto, Source Sans Pro, sans-serif;
+  font-size: 1.6rem;
+  padding: 0;
+}
