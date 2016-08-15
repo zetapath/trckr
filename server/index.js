@@ -15,6 +15,7 @@ const app = express()
 // Configure view engine to render EJS templates.
 app.set('views', path.resolve('.', 'src/views')) // @TODO: Pass config between routers
 app.set('view engine', 'ejs')
+
 // Use application-level middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -31,6 +32,10 @@ app.use(middlewareSession)
 app.use(middlewareError)
 app.use('/', routes)
 
+// Start Server
 app.listen(8888, () => {
   console.log('Listening on http://127.0.0.1:8888')
 })
+
+// Schedule crons
+require('./crons/updateCainiaoOrders')
