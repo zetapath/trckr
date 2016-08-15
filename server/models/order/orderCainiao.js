@@ -4,14 +4,15 @@ const provider = 'cainiao'
 
 export default (state) => ({
 
-  saveCainiao(props = {}, user) {
-    // -- Process Element
-    const order = {
-      user,
+  cainiao(props = {}, user) {
+    const query = { provider, trackingNumber: props.mailNo }
+
+    const data = {
       provider,
       trackingNumber: props.mailNo,
       description: props.statusDesc,
       status: props.status,
+      delivered: (props.status.toLowerCase() === 'signin'),
       packages: undefined,
       origin: {
         id: props.section1.mailNo,
@@ -24,17 +25,17 @@ export default (state) => ({
     }
 
     const checkpoints = props.section1.detailList.concat(props.section2.detailList)
-    order.checkpoints = checkpoints.map(checkpoint => ({
+    data.checkpoints = checkpoints.map(checkpoint => ({
       location: undefined,
       description: checkpoint.desc,
       status: checkpoint.status,
       created_at: moment(checkpoint.time).format()
     }))
 
-    return state.update({
-      query: { user, provider, trackingNumber: props.mailNo },
-      data: order,
-      upsert: true
-    })
+    if (user) {
+      query.user = user
+      data.user = user
+    }
+    return state.update({ query, data, upsert: true })
   }
 })

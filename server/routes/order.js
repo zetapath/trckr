@@ -45,7 +45,7 @@ router.get('/order/save/:id', (req, res) => {
   cainiao(req.params.id)
     .then((info) => {
       const sessionId = req.session.store.id
-      const order = Order.saveCainiao(info, sessionId)
+      const order = Order.cainiao(info, sessionId)
 
       res.json({
         message: `Track order ${order.id}`,

@@ -9,9 +9,9 @@ export default function(trackingNumber) {
     fetch(`${URL}${trackingNumber}`)
       .then((response) => response.text())
       .then((body) => {
-        const data = JSON.parse(cheerio.load(body)(TOKEN).text()).data[0]
+        const data = JSON.parse(cheerio.load(body)(TOKEN).text()).data
         if (data) {
-          resolve(data)
+          resolve(Array.isArray(trackingNumber) ? data : data[0])
         } else {
           reject('Something wrong...')
         }

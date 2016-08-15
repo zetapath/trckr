@@ -27,7 +27,7 @@ describe('/models: Order', () => {
 
   it('Parse tracking info from /provider/cainiao', async () => {
     expect(Order).to.be.ok
-    let order = Order.saveCainiao(mock)
+    let order = Order.cainiao(mock)
 
     expect(order.id).to.be.ok
     expect(order.createdAt).to.be.ok
@@ -40,7 +40,7 @@ describe('/models: Order', () => {
     expect(order.destination).to.have.all.keys('id', 'value', 'url')
     expect(order.checkpoints).to.be.ok
 
-    order = Order.saveCainiao(mock)
+    order = Order.cainiao(mock)
     expect(order.id).to.be.ok
     expect(order.updatedAt).to.be.ok
   })
