@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/profile', (req, res) => {
-  const session = req.session.store
+  const session = res.locals.session
   res.json(session)
 })
 

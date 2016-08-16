@@ -9,21 +9,21 @@ const router = new Router()
 
 // List of orders for current session
 router.get('/orders', (req, res) => {
-  const sessionId = req.session.store.id
+  const sessionId = res.locals.session.id
   const orders = Order.find({
     query: { user: sessionId }
   })
 
   res.render('index.ejs', {
     store: {},
-    session: req.session.store,
+    session: res.locals.session,
     markup: ReactDOMServer.renderToString(<Orders store={orders}/>)
   })
 })
 
 // Info of a determinate order using store id
 router.get('/order/:id', (req, res) => {
-  const sessionId = req.session.store.id
+  const sessionId = res.locals.session.id
   const order = Order.find({
     query: { id: req.params.id, user: sessionId }
   })
@@ -44,7 +44,7 @@ router.delete('/order/:id', (req, res) => {
 router.get('/order/save/:id', (req, res) => {
   cainiao(req.params.id)
     .then((info) => {
-      const sessionId = req.session.store.id
+      const sessionId = res.locals.session.id
       const order = Order.cainiao(info, sessionId)
 
       res.json({

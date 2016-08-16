@@ -9,9 +9,10 @@ export default (req, res, next) => {
   if (id) {
     user = User.find({ query: { id }, limit: 1 })
     if (user) {
-      req.session.store = user
+      res.locals.session = user
       console.log(`👻 session ${user.username}`)
     } else {
+      res.locals.session = undefined
       req.session.uuid = undefined
     }
   }

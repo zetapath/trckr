@@ -18,8 +18,13 @@
   </head>
 
   <body>
-    <h1>trckr v.0.0.7</h1>
-
+    <header>
+      <strong>trck</strong>
+      <nav>
+        <a href="/signin">Sign In</a>
+        <a href="/auth/twitter">Sign Up</a>
+      </nav>
+    </header>
     <section id="react-app">
       <%- markup %>
       <small>session: <%-JSON.stringify(session)%></small>
