@@ -1,5 +1,4 @@
 const pkg = require('./package');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -35,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss')
+        loader: ExtractTextPlugin.extract('style', 'css?modules!postcss')
       }
     ]
   },
@@ -44,7 +43,19 @@ module.exports = {
     new ExtractTextPlugin(pkg.name + '.[name].css', { allChunks: true })
   ],
 
-  postcss: [autoprefixer],
+  postcss (webpackInstance) {
+    return [
+      require('postcss-import')({
+        addDependencyTo: webpackInstance,
+        root: __dirname,
+        path: []
+      }),
+      require('postcss-mixins')(),
+      require('postcss-each')(),
+      require('postcss-cssnext')(),
+      require('postcss-reporter')({ clearMessages: true })
+    ];
+  },
 
   watch: true
 }
