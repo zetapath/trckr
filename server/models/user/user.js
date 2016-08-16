@@ -1,4 +1,5 @@
 import Model from '../base'
+import fromFacebook from './fromFacebook'
 import fromTwitter from './fromTwitter'
 
 export default (() => {
@@ -6,6 +7,7 @@ export default (() => {
 
   return Object.assign(
     state,
+    fromFacebook(state),
     fromTwitter(state)
   )
 })()

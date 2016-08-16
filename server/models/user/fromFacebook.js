@@ -1,17 +1,16 @@
-const provider = 'twitter'
+const provider = 'facebook'
 
 export default (state) => ({
 
-  fromTwitter(props = {}) {
+  fromFacebook(props = {}) {
     return state.update({
-      query: { provider, username: props.username },
+      query: { provider, providerId: props.id },
       data: {
         provider,
         providerId: props.id,
         username: props.username,
         displayName: props.displayName,
-        description: props._json.description,
-        avatar: props._json.profile_image_url,
+        url: props.profileUrl,
         language: props._json.lang,
         timezone: props._json.time_zone
       },

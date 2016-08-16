@@ -21,7 +21,7 @@ describe('/models: User', () => {
     expect(User.key).to.equal('users')
   })
 
-  it('Can save a twitter using the username', async () => {
+  it('Can save a twitter profile using the username', async () => {
     const profile = {
       username: 'soyjavi',
       displayName: 'Javi',
@@ -41,6 +41,21 @@ describe('/models: User', () => {
     expect(user.description).to.equal(profile._json.description)
     expect(user.language).to.equal(profile._json.lang)
     expect(user.timezone).to.equal(profile._json.time_zone)
+  })
+
+  it('Can save a facebook profile using the id', async () => {
+    const profile = {
+      id: '12345678',
+      displayName: 'Javi Jimenez Villar',
+      profileUrl: 'http://facebook.com',
+      _json: {}
+    }
+    const user = User.fromFacebook(profile)
+
+    expect(user.id).to.be.ok
+    expect(user.providerId).to.equal(profile.id)
+    expect(user.displayName).to.equal(profile.displayName)
+    expect(user.url).to.equal(profile.profileUrl)
   })
 
 })

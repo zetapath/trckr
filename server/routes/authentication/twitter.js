@@ -1,7 +1,7 @@
 import express from 'express'
 import passport from 'passport'
 import { Strategy } from 'passport-twitter'
-import { User } from '../../../models'
+import { User } from '../../models'
 
 passport.use(new Strategy(global.config.twitter, (token, tokenSecret, profile, callback) => {
   return callback(null, User.fromTwitter(profile))
