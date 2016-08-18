@@ -1,0 +1,13 @@
+
+.root {
+
+  & .brand {
+    font-weight: bold;
+    font-size: 150%;
+  }
+}
+
+.navigation {
+  flex-grow: 1;
+  text-align: right;
+}

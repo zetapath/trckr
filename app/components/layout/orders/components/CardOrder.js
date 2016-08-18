@@ -6,7 +6,8 @@ export default class CardOrder extends React.Component {
   render() {
     return (
       <li>
-        <strong>{this.props.id}</strong>
+        <a href={`/order/${this.props.id}`}>{this.props.id}</a>
+        <small>{this.props.delivered}</small>
         <small>{this.props.createdAt}</small>
       </li>
     )

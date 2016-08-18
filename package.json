@@ -56,6 +56,7 @@
     "random-useragent": "^0.3.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-router": "^2.6.1",
     "session-file-store": "^0.2.0",
     "uuid": "^2.0.2"
   },
