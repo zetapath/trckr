@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  background-color: red;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    margin: 1.6rem;
+    vertical-align: top;
+  }
+}

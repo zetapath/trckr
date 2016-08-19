@@ -1,2 +1,3 @@
-require('./server')
-// require('./crons/updateCainiaoOrders')
+import './crons/updateCainiaoOrders';
+
+export default from './server';

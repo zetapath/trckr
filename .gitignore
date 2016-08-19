@@ -38,5 +38,6 @@ jspm_packages
 
 # Others
 build
+labs
 store
 sessions

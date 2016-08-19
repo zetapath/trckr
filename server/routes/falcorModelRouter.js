@@ -1,5 +1,5 @@
-import Router from 'falcor-router'
-import { Order } from '../models'
+import Router from 'falcor-router';
+import { Order } from '../models';
 
 export default (req, res) => {
   return new Router([
@@ -12,12 +12,19 @@ export default (req, res) => {
     // -- Basic
     {
       route: 'orders',
-      get: (pathSet) => {
-        return {
-          path: ['orders'],
-          value: Order.find({ query: { user: res.locals.session.id } })
-        }
-      }
+      get: () => {
+        const orders = Order.find({ query: { user: res.locals.session.id } });
+        return [
+          {
+            path: ['orders'],
+            value: orders,
+          },
+          {
+            path: ['orders', 'length'],
+            value: orders.length,
+          },
+        ];
+      },
     },
 
     // -- Non existent properties
@@ -34,10 +41,10 @@ export default (req, res) => {
         return pathSet[1].map((key) => {
           return {
             path: ['orders', key],
-            value: Order.find({ query: { user: res.locals.session.id } })[0][key]
-          }
-        })
-      }
+            value: Order.find({ query: { user: res.locals.session.id } })[0][key],
+          };
+        });
+      },
     },
 
     // -- By Id
@@ -48,29 +55,29 @@ export default (req, res) => {
           return {
             path: ['order', id],
             value: Order.find({ query: { id }, limit: 1 })
-          }
-        })
-      }
+          };
+        });
+      },
     },
 
     // -- Add
     {
       route: 'orders.add',
       call: (callPath, args) => {
-        const newName = args[0]
-        const orders = []
-        orders.push({ name: newName })
+        const newName = args[0];
+        const orders = [];
+        orders.push({ name: newName });
         return [
           {
             path: ['orders', orders.length - 1, 'name'],
-            value: newName
+            value: newName,
           },
           {
             path: ['orders', 'length'],
-            value: orders.length
-          }
-        ]
-      }
-    }
-  ])
-}
+            value: orders.length,
+          },
+        ];
+      },
+    },
+  ]);
+};

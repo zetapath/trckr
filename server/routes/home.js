@@ -1,18 +1,15 @@
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { Router } from 'express'
-import Home from '../../components/Home'
+import { Router } from 'express';
 
-const router = new Router()
+const router = new Router();
 
 router.get('/', (req, res) => {
   const bindings = {
     store: {},
     session: res.locals.session,
-    markup: '<h2>Hello World</h2>'
-  }
+    markup: '<h2>Hello World</h2>',
+  };
 
-  res.render('index.ejs', bindings)
-})
+  res.render('index.ejs', bindings);
+});
 
-export default router
+export default router;

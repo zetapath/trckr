@@ -1,24 +1,23 @@
-import { Router } from 'express'
-import { User } from '../models'
+import { Router } from 'express';
 
-const router = new Router()
+const router = new Router();
 
 router.get('/signin', (req, res) => {
-  res.send('New here? 💋')
-})
+  res.send('New here? 💋');
+});
 
 router.get('/login', (req, res) => {
-  res.send('New here? 💋')
-})
+  res.send('New here? 💋');
+});
 
 router.get('/profile', (req, res) => {
-  const session = res.locals.session
-  res.json(session)
-})
+  const session = res.locals.session;
+  res.json(session);
+});
 
 router.get('/logout', (req, res) => {
-  req.session.destroy()
-  res.redirect('/')
-})
+  req.session.destroy();
+  res.redirect('/');
+});
 
-export default router
+export default router;

@@ -1,15 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router';
-import AppBar from 'react-toolbox/lib/app_bar'
-import { Button } from 'react-toolbox/lib/button'
-import Navigation from 'react-toolbox/lib/navigation'
-import Tooltip from 'react-toolbox/lib/tooltip'
+import AppBar from 'react-toolbox/lib/app_bar';
+import { Button } from 'react-toolbox/lib/button';
+import Navigation from 'react-toolbox/lib/navigation';
+import Tooltip from 'react-toolbox/lib/tooltip';
+import style from './appbar.css';
 
-import style from './appbar.css'
-
-console.log('style', style.brand);
-
-const TooltipButton = Tooltip(Button)
+const TooltipButton = Tooltip(Button);
 
 export default (props) => {
   return (
@@ -23,5 +20,5 @@ export default (props) => {
 
       <TooltipButton icon='add' tooltip='Add a new package' floating accent />
     </AppBar>
-  )
-}
+  );
+};

@@ -1,10 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import LayoutHome from './components/layout/home'
-import LayoutOrders from './components/layout/orders'
-import LayoutError from './components/layout/404'
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import LayoutHome from './components/layout/home';
+import LayoutOrders from './components/layout/orders';
+import LayoutError from './components/layout/404';
 // import 'normalize';
 import 'react-toolbox/lib/commons.css';
 

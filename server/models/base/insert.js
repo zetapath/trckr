@@ -1,15 +1,16 @@
-import uuid from 'uuid'
+import uuid from 'uuid';
 
 export default (state) => ({
 
   insert(props = {}) {
-    props.id = uuid()
-    props.createdAt = new Date()
-    let item = state.db
+    props.id = uuid();
+    props.createdAt = new Date();
+    const item = state.db
       .get(state.key)
       .push(props)
-      .value()
+      .value();
 
-    return item[0]
-  }
-})
+    return item[0];
+  },
+
+});

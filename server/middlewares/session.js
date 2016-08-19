@@ -1,24 +1,24 @@
-import { User } from '../models'
+import { User } from '../models';
 
 export default (req, res, next) => {
-  const route = req.url.split('/')[1]
-  if (route === 'static') return next()
+  const route = req.url.split('/')[1];
+  if (route === 'static') return next();
 
-  let user
-  const id = req.session.uuid
+  let user;
+  const id = req.session.uuid;
   if (id) {
-    user = User.find({ query: { id }, limit: 1 })
+    user = User.find({ query: { id }, limit: 1 });
     if (user) {
-      res.locals.session = user
-      console.log(`👻 session ${user.username}`)
+      res.locals.session = user;
+      console.log(`👻 session ${user.username}`);
     } else {
-      res.locals.session = undefined
-      req.session.uuid = undefined
+      res.locals.session = undefined;
+      req.session.uuid = undefined;
     }
   }
 
   if (!user && route !== '' && route !== 'login' && route !== 'auth') {
-    return res.redirect('/login')
+    return res.redirect('/login');
   }
-  next()
-}
+  next();
+};
