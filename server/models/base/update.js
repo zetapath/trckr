@@ -10,14 +10,18 @@ export default (state) => ({
       .assign(props.data)
       .value();
 
+
     if ((!item || !item.id) && props.data && props.upsert) {
-      props.data.id = uuid();
+      const id = uuid();
+      props.data.id = id;
       props.data.createdAt = new Date();
       delete props.data.updatedAt;
+
       item = state.db
         .get(state.key)
         .push(props.data)
-        .value()[0];
+        .find({ id })
+        .value();
     }
 
     return item;
