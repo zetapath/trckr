@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from '../../appbar';
 import CardOrder from './components/CardOrder';
 import style from './orders.css';
+import model from '../../../modules/model'
 
 const fields = [
   'id',
@@ -22,10 +23,6 @@ export default class Orders extends React.Component {
 
   // -- Lifecycle
   componentWillMount() {
-    const model = new falcor.Model({
-      source: new falcor.HttpDataSource('/falcor/model.json'),
-    })
-
     model
       .get(['orders', { from: 0, to: 32 }, fields])
       .then((response) => {
