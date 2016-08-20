@@ -12,9 +12,10 @@ export default (state) => ({
         displayName: props.displayName,
         url: props.profileUrl,
         language: props._json.lang,
-        timezone: props._json.time_zone
+        timezone: props._json.time_zone,
       },
-      upsert: true
-    })
-  }
-})
+      upsert: true,
+    });
+  },
+
+});

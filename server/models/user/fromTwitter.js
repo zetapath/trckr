@@ -1,4 +1,4 @@
-const provider = 'twitter'
+const provider = 'twitter';
 
 export default (state) => ({
 
@@ -13,9 +13,10 @@ export default (state) => ({
         description: props._json.description,
         avatar: props._json.profile_image_url,
         language: props._json.lang,
-        timezone: props._json.time_zone
+        timezone: props._json.time_zone,
       },
-      upsert: true
-    })
-  }
-})
+      upsert: true,
+    });
+  },
+
+});

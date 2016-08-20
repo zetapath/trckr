@@ -1,11 +1,11 @@
-import moment from 'moment'
+import moment from 'moment';
 
-const provider = 'cainiao'
+const provider = 'cainiao';
 
 export default (state) => ({
 
   cainiao(props = {}, user) {
-    const query = { provider, trackingNumber: props.mailNo }
+    const query = { provider, trackingNumber: props.mailNo };
 
     const data = {
       provider,
@@ -21,21 +21,22 @@ export default (state) => ({
       destination: {
         id: props.section2.mailNo,
         value: props.section2.countryName,
-        url: props.section2.url }
-    }
+        url: props.section2.url },
+    };
 
-    const checkpoints = props.section1.detailList.concat(props.section2.detailList)
+    const checkpoints = props.section1.detailList.concat(props.section2.detailList);
     data.checkpoints = checkpoints.map(checkpoint => ({
       location: undefined,
       description: checkpoint.desc,
       status: checkpoint.status,
-      created_at: moment(checkpoint.time).format()
-    }))
+      created_at: moment(checkpoint.time).format(),
+    }));
 
     if (user) {
-      query.user = user
-      data.user = user
+      query.user = user;
+      data.user = user;
     }
-    return state.update({ query, data, upsert: true })
-  }
-})
+    return state.update({ query, data, upsert: true });
+  },
+
+});

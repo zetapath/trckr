@@ -1,3 +1,1 @@
-import User from './user'
-
-export default User
+export default from './user';
