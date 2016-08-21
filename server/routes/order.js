@@ -14,16 +14,10 @@ router.get('/orders', (req, res) => {
 
 // Info of a determinate order using store id
 router.get('/order/:id', (req, res) => {
-  const sessionId = res.locals.session.id;
-  const order = Order.find({
-    query: { id: req.params.id, user: sessionId },
+  res.render('index.ejs', {
+    store: {},
+    session: res.locals.session,
   });
-
-  if (order) {
-    res.json(order);
-  } else {
-    res.status(500).send("🤔 You don't have registered this order");
-  }
 });
 
 export default router;

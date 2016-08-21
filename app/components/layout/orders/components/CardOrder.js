@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Button, IconButton } from 'react-toolbox/lib/button';
 import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
 
@@ -16,8 +17,10 @@ export default (props) => {
       />
       <CardText>{props.description}</CardText>
       <CardActions>
-        <Button label="Details" />
-        <Button label="Mark as recived" />
+        <Link to={`/order/${props.id}`} active>
+          <Button label="Details" primary />
+        </Link>
+        <Button label="Mark as received" />
       </CardActions>
     </Card>
   )
