@@ -7,21 +7,17 @@ export default (props) => {
     <Card style={{ width: '256px' }}>
       <CardTitle
         avatar="https://placeimg.com/80/80/animals"
-        title="Avatar style title"
-        subtitle="Subtitle here"
-      />
-      <CardMedia
-        aspectRatio="wide"
-        image="https://placeimg.com/800/450/nature"
+        title={props.provider}
+        subtitle={props.updatedAt}
       />
       <CardTitle
-        title="Title goes here"
-        subtitle={props.description}
+        title={props.title}
+        subtitle={props.trackingNumber}
       />
       <CardText>{props.description}</CardText>
       <CardActions>
-        <Button label="Action 1" />
-        <Button label="Action 2" />
+        <Button label="Details" />
+        <Button label="Mark as recived" />
       </CardActions>
     </Card>
   )

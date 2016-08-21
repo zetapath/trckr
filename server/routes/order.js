@@ -26,25 +26,4 @@ router.get('/order/:id', (req, res) => {
   }
 });
 
-// Remove a determinate order using store id
-router.delete('/order/:id', (req, res) => {
-  res.status(500).send('💩');
-});
-
-// Add a new order for current session
-router.get('/order/save/:id', (req, res) => {
-  cainiao(req.params.id)
-    .then((info) => {
-      const order = Order.cainiao(info, res.locals.session.id);
-
-      res.json({
-        message: `Track order ${order.id}`,
-        order,
-      });
-    })
-    .catch((error) => {
-      res.status(500).send(`🤔 Something broke: ${error}`);
-    });
-});
-
 export default router;

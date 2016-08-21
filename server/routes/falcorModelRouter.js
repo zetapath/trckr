@@ -1,5 +1,6 @@
 import Router from 'falcor-router';
 import { Order } from '../models';
+import { cainiao } from '../providers';
 
 export default (req, res) => {
   return new Router([
@@ -62,22 +63,16 @@ export default (req, res) => {
 
     // -- Add
     {
-      route: 'orders.add',
-      call: (callPath, args) => {
-        const newName = args[0];
-        const orders = [];
-        orders.push({ name: newName });
-        return [
-          {
-            path: ['orders', orders.length - 1, 'name'],
-            value: newName,
-          },
-          {
-            path: ['orders', 'length'],
-            value: orders.length,
-          },
-        ];
+      route: 'order.add',
+      call: async (callPath, props, fields) => {
+        const info = await cainiao(props[0]);
+        const order = Order.cainiao(info, res.locals.session.id, props[1]);
+
+        return fields.map(field => {
+          return ({ path: ['order', field], value: order[field] });
+        });
       },
     },
+
   ]);
 };

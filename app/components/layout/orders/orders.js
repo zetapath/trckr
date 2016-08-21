@@ -3,10 +3,13 @@ import AppBar from '../../appbar';
 import CardOrder from './components/CardOrder';
 import style from './orders.css';
 import model from '../../../modules/model'
+import DialogNewOrder from './components/DialogNewOrder';
 
 const fields = [
   'id',
+  'provider',
   'trackingNumber',
+  'title',
   'status',
   'description',
   'origin.value',
@@ -18,7 +21,10 @@ export default class Orders extends React.Component {
 
   constructor() {
     super();
-    this.state = { orders: {} };
+    this.state = {
+      orders: {},
+      active: false,
+    };
   }
 
   // -- Lifecycle
@@ -30,12 +36,20 @@ export default class Orders extends React.Component {
       });
   }
 
+  // -- Events
+  handleToggle = () => {
+    this.setState({ active: !this.state.active });
+  }
+
   // -- Render
   render() {
     const orders = this.state.orders;
     return (
-      <section>
+      <section className={style.root}>
         <AppBar />
+
+        <DialogNewOrder active={this.state.active} />
+
         <h2>Your orders ({ orders.length })</h2>
         <ul className={style.list}>
           { Object.keys(orders).map((key) => <CardOrder key={key} {...orders[key]} />) }

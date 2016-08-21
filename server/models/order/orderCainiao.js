@@ -4,11 +4,13 @@ const provider = 'cainiao';
 
 export default (state) => ({
 
-  cainiao(props = {}, user) {
+  cainiao(props = {}, user, title) {
     const query = { provider, trackingNumber: props.mailNo };
 
     const data = {
       provider,
+      title,
+      user,
       trackingNumber: props.mailNo,
       description: props.statusDesc,
       status: props.status,
@@ -34,7 +36,6 @@ export default (state) => ({
 
     if (user) {
       query.user = user;
-      data.user = user;
     }
     return state.update({ query, data, upsert: true });
   },
