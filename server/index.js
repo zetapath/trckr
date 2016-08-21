@@ -1,3 +1,3 @@
-import './crons/updateCainiaoOrders';
+// import './crons/updateCainiaoOrders';
 
 export default from './server';

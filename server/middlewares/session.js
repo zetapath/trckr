@@ -2,7 +2,7 @@ import { User } from '../models';
 
 export default (req, res, next) => {
   const route = req.url.split('/')[1];
-  if (route === 'static') return next();
+  if (route === 'static' || route === 'status') return next();
 
   let user;
   const id = req.session.uuid;
