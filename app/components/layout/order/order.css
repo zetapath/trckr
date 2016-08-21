@@ -1,2 +1,10 @@
+@import '../../../style/theme.css';
+
 .root {
+}
+
+.header {
+  background: var(--color-primary-dark);
+  color: white;
+  padding: var(--appbar-h-padding);
 }

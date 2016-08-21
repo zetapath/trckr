@@ -1,5 +1,11 @@
+@import '../../style/theme.css';
+
+:root {
+  --appbar-color: var(--color-primary);
+}
 
 .root {
+  background: var(--appbar-color);
 
   & .brand {
     font-weight: bold;

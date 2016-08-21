@@ -1,5 +1,4 @@
 import React from 'react';
-import AppBar from '../../appbar';
 import CardOrder from './components/CardOrder';
 import style from './orders.css';
 import model from '../../../modules/model'
@@ -45,16 +44,14 @@ export default class Orders extends React.Component {
   render() {
     const orders = this.state.orders;
     return (
-      <section className={style.root}>
-        <AppBar />
-
+      <article className={style.root}>
         <DialogNewOrder active={this.state.active} />
 
         <h2>Your orders ({ orders.length })</h2>
         <ul className={style.list}>
           { Object.keys(orders).map((key) => <CardOrder key={key} {...orders[key]} />) }
         </ul>
-      </section>
+      </article>
     );
   }
 }

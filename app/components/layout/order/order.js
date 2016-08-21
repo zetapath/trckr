@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './order.css';
 import model from '../../../modules/model'
+import style from './order.css';
 
 const fields = [
   'id',
@@ -29,7 +29,7 @@ export default class Order extends React.Component {
     this.setState({ loading: true });
     const id = this.props.params.id;
     model
-      .get(`order['${id}']['id', 'createdAt']`)
+      .get(`order['${id}']['id', 'title', 'createdAt']`)
       .then((response) => {
         if (response.json && response.json.order) {
           this.setState({
@@ -42,15 +42,16 @@ export default class Order extends React.Component {
 
   // -- Render
   render() {
+    const order = this.state.order;
     return (
-      <section className={style.root}>
-        <h1>Order info</h1>
-        {
-          this.state.loading ? 'loading' : undefined
-        }
-        <h2>{this.state.order.id}</h2>
-        <strong>{this.state.order.createdAt}</strong>
-      </section>
+      <article className={style.root}>
+        { this.state.loading ? 'loading' : undefined }
+        <div className={style.header}>
+          <h3>{order.title}</h3>
+          <small>{order.id}</small>
+        </div>
+        <strong>{order.createdAt}</strong>
+      </article>
     );
   }
 }
