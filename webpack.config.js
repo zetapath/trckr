@@ -19,10 +19,13 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.json'],
-    modulesDirectories: [
-      'node_modules',
-      path.resolve(__dirname, './node_modules'),
-    ],
+    // modulesDirectories: [
+    //   'node_modules',
+    //   path.resolve(__dirname, './node_modules'),
+    // ],
+    alias: {
+      rx$: path.join(__dirname, './node_modules/falcor/node_modules/rx/dist/rx.js')
+    },
   },
 
   module: {
