@@ -1,9 +1,9 @@
-.root {
-}
+@import '../../style/theme.css';
 
-.list {
+.root {
   display: flex;
   flex-wrap: wrap;
+
   & > * {
     margin: 1.6rem;
     vertical-align: top;

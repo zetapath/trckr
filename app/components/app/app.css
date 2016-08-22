@@ -1,0 +1,21 @@
+@import '../../style/theme.css';
+@import 'react-toolbox/lib/app_bar/config.css';
+
+:root {
+  /*--appbar-height: calc(6.4 * var(--unit));*/
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.root {
+  margin-top: var(--appbar-height);
+}
+
+.newOrder {
+  position: fixed;
+  top: calc(var(--appbar-height) / 2);
+  right: var(--unit);
+  z-index: var(--z-index-highest);
+}

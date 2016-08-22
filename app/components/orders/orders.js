@@ -1,8 +1,7 @@
 import React from 'react';
 import CardOrder from './components/CardOrder';
 import style from './orders.css';
-import model from '../../../modules/model'
-import DialogNewOrder from './components/DialogNewOrder';
+import model from '../../modules/model'
 
 const fields = [
   'id',
@@ -20,10 +19,7 @@ export default class Orders extends React.Component {
 
   constructor() {
     super();
-    this.state = {
-      orders: {},
-      active: false,
-    };
+    this.state = { orders: {} };
   }
 
   // -- Lifecycle
@@ -44,14 +40,9 @@ export default class Orders extends React.Component {
   render() {
     const orders = this.state.orders;
     return (
-      <article className={style.root}>
-        <DialogNewOrder active={this.state.active} />
-
-        <h2>Your orders ({ orders.length })</h2>
-        <ul className={style.list}>
-          { Object.keys(orders).map((key) => <CardOrder key={key} {...orders[key]} />) }
-        </ul>
-      </article>
+      <ul className={style.root}>
+        { Object.keys(orders).map((key) => <CardOrder key={key} {...orders[key]} />) }
+      </ul>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import model from '../../../modules/model'
+import model from '../../modules/model'
 import style from './order.css';
 
 const fields = [
@@ -29,7 +29,7 @@ export default class Order extends React.Component {
     this.setState({ loading: true });
     const id = this.props.params.id;
     model
-      .get(`order['${id}']['id', 'title', 'createdAt']`)
+      .get(`order['${id}']['id', 'trackingNumber', 'title', 'description', 'status', 'delivered', 'updatedAt']`)
       .then((response) => {
         if (response.json && response.json.order) {
           this.setState({
@@ -48,9 +48,13 @@ export default class Order extends React.Component {
         { this.state.loading ? 'loading' : undefined }
         <div className={style.header}>
           <h3>{order.title}</h3>
-          <small>{order.id}</small>
+          <small>{order.trackingNumber}</small>
         </div>
-        <strong>{order.createdAt}</strong>
+        <ul>
+          <li>{order.updatedAt}</li>
+          <li>{order.status}</li>
+          <li>{order.description}</li>
+        </ul>
       </article>
     );
   }

@@ -1,9 +1,0 @@
-@import '../../../style/theme.css';
-
-:root {
-  --appbar-height: calc(6.4 * var(--unit));
-}
-
-.root {
-  margin-top: var(--appbar-height);
-}

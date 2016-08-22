@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
-import LayoutHome from './components/layout/home';
-import LayoutApp from './components/layout/app';
-import LayoutOrders from './components/layout/orders';
-import LayoutOrder from './components/layout/order';
-import LayoutError from './components/layout/404';
-import session from './modules/session'
+import Error404 from './components/404';
+import App from './components/app';
+import Home from './components/home';
+import Order from './components/order';
+import Orders from './components/orders';
 
 ReactDOM.render((
   <Router history={browserHistory}>
-    <Route path='/' component={LayoutApp} session={session}>
-      <IndexRoute component={LayoutHome} />
-      <Route path='orders' component={LayoutOrders} />
-      <Route path='order/:id' component={LayoutOrder} />
-      <Route path='*' component={LayoutError}/>
+    <Route path='/' component={App}>
+      <IndexRoute component={Home} />
+      <Route path='orders' component={Orders} />
+      <Route path='order/:id' component={Order} />
+      <Route path='*' component={Error404}/>
     </Route>
   </Router>
 ), document.getElementById('react-app'))

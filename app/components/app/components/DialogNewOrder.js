@@ -1,5 +1,5 @@
 import React from 'react';
-import model from '../../../../modules/model';
+import model from '../../../modules/model';
 import { Button } from 'react-toolbox/lib/button';
 import Dialog from 'react-toolbox/lib/dialog';
 import Input from 'react-toolbox/lib/input';
@@ -43,8 +43,8 @@ export default class Orders extends React.Component {
       <Dialog
         actions={this.state.actions}
         active={this.props.active}
-        onEscKeyDown={this.handleToggle}
-        onOverlayClick={this.handleToggle}
+        onEscKeyDown={this.props.onClose}
+        onOverlayClick={this.props.onClose}
         title='New Order'
       >
         <p>Here you can add arbitrary content. Components like Pickers are using dialogs now.</p>

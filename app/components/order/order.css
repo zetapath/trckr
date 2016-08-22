@@ -1,6 +1,8 @@
-@import '../../../style/theme.css';
+@import '../../style/theme.css';
+@import 'react-toolbox/lib/app_bar/config.css';
 
 .root {
+
 }
 
 .header {
