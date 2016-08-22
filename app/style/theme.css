@@ -8,6 +8,4 @@
   --color-accent: var(--palette-pink-a200);
   --color-accent-dark: var(--palette-pink-700);
   --unit: 1rem;
-
-  --appbar-h-padding: calc(2.4 * var(--unit));
 }

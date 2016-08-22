@@ -1,7 +1,10 @@
 @import '../../style/theme.css';
+@import 'react-toolbox/lib/app_bar/config.css';
 
 :root {
   --appbar-color: var(--color-primary);
+  --appbar-link-inactive: color(white alpha(75%));
+  --appbar-link-active: white;
 }
 
 .root {
@@ -16,4 +19,21 @@
 .navigation {
   flex-grow: 1;
   text-align: right;
+
+  & > * {
+    padding: 0 var(--unit);
+    line-height: var(--appbar-height);
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  & :not(.active) {
+    color: var(--appbar-link-inactive);
+  }
+
+  & .active {
+    color: var(--appbar-link-active);
+    font-weight: bold;
+    box-shadow: inset 0 -3px var(--color-accent);
+  }
 }
